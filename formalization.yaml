@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml v0.4.
+version: "v0.4"
+
+project:
+  name: "Singh Theorem: variance of log-derivative differences at small CUE gaps"
+  description: >-
+    For a Haar-random unitary matrix in U(N), the conditional variance of
+    log|Λ'(θ₁)| - log|Λ'(θ₂)| for an adjacent pair of eigenangles at normalized
+    gap s, where Λ is the characteristic polynomial, equals c_N s² (1 + o(1)) as
+    s → 0⁺ with c_N = (π²/15)(1 - 4/N²). The proof conditions on the pair through
+    the Weyl density, linearizes by dominated convergence, maps the resulting
+    circle weight to the Hua (Cauchy) ensemble by the Cayley transform, and
+    evaluates the second moment there from two loop equations proved by
+    integration by parts.
+  # Required nonempty list of name strings or mappings with a nonempty name.
+  authors:
+    - "TEMPLATE: formalization authors (to be decided)"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Jaskirat Singh"
+
+classification:
+  arxiv: ["math.PR", "math-ph"]
+  msc2020: ["60B20", "15B52", "11M50"]
+
+sources:
+  - title: "TEMPLATE: result origin (for example the Singh Theorem paper, or original-proof) to be decided"
+    type: "TEMPLATE: original-proof or paper"
+    relationship: "TEMPLATE: other (with original-proof) or formalizes"
+    note: "TEMPLATE: provenance of the mathematical result, to be decided"
+    author_endorsement: "TEMPLATE: participated, endorsed, no-response, not-contacted, declined, n/a, or other"
+  - title: "Harmonic Analysis of Functions of Several Complex Variables in the Classical Domains"
+    authors:
+      - "L. K. Hua"
+    type: "book"
+    location: "Translations of Mathematical Monographs, vol. 6, American Mathematical Society, 1963"
+    relationship: "background"
+    note: "Source of the Hua (Cauchy) ensemble weight ∏(1+u²)^{-(n+h)} ∏(u_j-u_k)²."
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Formalized: the conditional variance cueV N s of log|Λ'(θ₁)| - log|Λ'(θ₂)|
+    under the explicit Weyl conditional density of the remaining N-2 eigenangles
+    given an adjacent pair at gap 2πs/N (restricted to the complementary arc),
+    and the limits cueV N s / s² → (π²/15)(1 - 4/N²) and
+    cueV N s = c_N s² + o(s²) as s → 0⁺, for every N ≥ 2. The Weyl conditional
+    density is the stated model; deriving it from Haar measure on U(N) inside
+    Lean is the classical Weyl integration formula and is not part of this entry.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: "TEMPLATE: manual, copilot, agent, autonomous, or other (to be decided)"
+      models: ["TEMPLATE: model names, or replace this list with [] (to be decided)"]
+      framework: "TEMPLATE: framework name, or n/a (to be decided)"
+      tool_setup: "TEMPLATE: tools used (to be decided)"
+      cost:
+        wall_time: "TEMPLATE: approximate elapsed effort (to be decided)"
+        spend_usd: "TEMPLATE: amount, subscription-based, or not tracked (to be decided)"
+        hardware: "TEMPLATE: local machine, API-only, or other (to be decided)"
+      prompting_notes: "TEMPLATE: prompting notes, or n/a (to be decided)"
+  spend_usd: "TEMPLATE: total amount, subscription-based, or not tracked (to be decided)"
+  notes: "TEMPLATE: overall human and automation workflow (to be decided)"
+
+fidelity:
+  divergences: >-
+    The conditional law is given by its explicit density: chord lengths
+    |e^{ia} - e^{ib}| are written as 2|sin((a-b)/2)| (proved as
+    Singh.norm_exp_sub_exp) and constant factors are dropped, which cancel in
+    the variance. By rotation invariance the pair is placed at ∓δ/2. The passage
+    from Haar measure on U(N) to the Weyl density is taken as the classical Weyl
+    integration formula.
+
+review:
+  status: "TEMPLATE: honest review status, for example self-assessed (to be decided)"
+  reviewers:
+    - "TEMPLATE: reviewer names, or none (to be decided)"
+  notes: "TEMPLATE: statement audits and mathematical review performed (to be decided)"
+
+alignment:
+  namespace: "Singh"
+  statements:
+    - source: "Singh Theorem: Var(log|Λ'(θ₁)| - log|Λ'(θ₂)| | s) / s² → c_N"
+      lean: "Singh.singh_theorem"
+      module: "Challenge"
+      status: "proved"
+      note: "Proved in Solution from Singh.theorem_cN_CUE in Singh.Analytic."
+    - source: "Singh Theorem, little-o form: Var = c_N s² + o(s²)"
+      lean: "Singh.singh_theorem_isLittleO"
+      module: "Challenge"
+      status: "proved"
+      note: "Proved in Solution from Singh.theorem_cN_CUE_isLittleO in Singh.Analytic."
+
+acknowledgements: "Lean 4 and Mathlib."
