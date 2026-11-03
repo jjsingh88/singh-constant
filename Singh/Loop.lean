@@ -2,6 +2,7 @@ module
 
 public import Singh.Hua
 public import Singh.Algebra
+public import Singh.Defs
 
 @[expose] public section
 
@@ -15,9 +16,6 @@ open scoped ENNReal NNReal
 namespace Singh
 
 variable {n : ℕ}
-
-/-- Ordered pairs `a < b`. -/
-def pairs (n : ℕ) : Finset (Fin n × Fin n) := univ.filter fun p => p.1 < p.2
 
 
 lemma sum_offdiag_eq_two_pairs (g : Fin n → Fin n → ℝ) (hg : ∀ a b, g a b = g b a) :

@@ -111,10 +111,6 @@ theorem theorem_cN_isLittleO {N : ℕ} (hN : 2 ≤ N) (D : CUEPairData N) :
   · filter_upwards [self_mem_nhdsWithin] with s hs h0
     exact absurd h0 (pow_ne_zero _ (ne_of_gt hs))
 
-/-- `V s = Var(log|Λ'(θ₁)| - log|Λ'(θ₂)| | s)` for an adjacent pair at normalized gap `s`,
-under the Weyl density of the remaining `N-2` eigenangles. -/
-noncomputable def cueV (N : ℕ) (s : ℝ) : ℝ := palmVar (N - 2) (2 * Real.pi / N * s)
-
 theorem cueV_linearization {N : ℕ} (hN : 0 < N) :
     Tendsto (fun s => cueV N s / s ^ 2) (𝓝[>] 0)
       (𝓝 ((2 * Real.pi / N) ^ 2 * circleE (N - 2))) := by
