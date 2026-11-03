@@ -15,7 +15,7 @@ project:
     integration by parts.
   # Required nonempty list of name strings or mappings with a nonempty name.
   authors:
-    - "TEMPLATE: formalization authors (to be decided)"
+    - "Jaskirat Singh"
   license: "Apache-2.0"
   responsible_maintainers:
     - "Jaskirat Singh"
@@ -25,11 +25,11 @@ classification:
   msc2020: ["60B20", "15B52", "11M50"]
 
 sources:
-  - title: "TEMPLATE: result origin (for example the Singh Theorem paper, or original-proof) to be decided"
-    type: "TEMPLATE: original-proof or paper"
-    relationship: "TEMPLATE: other (with original-proof) or formalizes"
-    note: "TEMPLATE: provenance of the mathematical result, to be decided"
-    author_endorsement: "TEMPLATE: participated, endorsed, no-response, not-contacted, declined, n/a, or other"
+  - title: "Singh Theorem (Jaskirat Singh, HIX Lab), Hexagon hexagon:2611.00059"
+    type: "paper"
+    relationship: "formalizes"
+    note: "Original theorem and proof by Jaskirat Singh; this repository is its full Lean 4 proof."
+    author_endorsement: "participated"
   - title: "Harmonic Analysis of Functions of Several Complex Variables in the Classical Domains"
     authors:
       - "L. K. Hua"
@@ -55,17 +55,17 @@ status:
 
 automation:
   methods:
-    - method: "TEMPLATE: manual, copilot, agent, autonomous, or other (to be decided)"
-      models: ["TEMPLATE: model names, or replace this list with [] (to be decided)"]
-      framework: "TEMPLATE: framework name, or n/a (to be decided)"
-      tool_setup: "TEMPLATE: tools used (to be decided)"
+    - method: "copilot"
+      models: []
+      framework: "n/a"
+      tool_setup: "Lean 4 and Mathlib on a local machine"
       cost:
-        wall_time: "TEMPLATE: approximate elapsed effort (to be decided)"
-        spend_usd: "TEMPLATE: amount, subscription-based, or not tracked (to be decided)"
-        hardware: "TEMPLATE: local machine, API-only, or other (to be decided)"
-      prompting_notes: "TEMPLATE: prompting notes, or n/a (to be decided)"
-  spend_usd: "TEMPLATE: total amount, subscription-based, or not tracked (to be decided)"
-  notes: "TEMPLATE: overall human and automation workflow (to be decided)"
+        wall_time: "not tracked"
+        spend_usd: "subscription-based"
+        hardware: "local machine"
+      prompting_notes: "n/a"
+  spend_usd: "subscription-based"
+  notes: "Original theorem and proof by Jaskirat Singh. A mix of human-written and AI-generated text; every statement and step was checked and understood by Jaskirat Singh, and the Lean kernel verifies the full proof."
 
 fidelity:
   divergences: >-
@@ -77,10 +77,9 @@ fidelity:
     integration formula.
 
 review:
-  status: "TEMPLATE: honest review status, for example self-assessed (to be decided)"
-  reviewers:
-    - "TEMPLATE: reviewer names, or none (to be decided)"
-  notes: "TEMPLATE: statement audits and mathematical review performed (to be decided)"
+  status: "self-assessed"
+  reviewers: []
+  notes: "Statements audited by Jaskirat Singh against his paper; proof checked by the Lean kernel with 0 sorry and only standard axioms."
 
 alignment:
   namespace: "Singh"
